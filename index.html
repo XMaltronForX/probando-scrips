@@ -16,7 +16,10 @@
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
     crossorigin="anonymous"></script>
 </head>
-<body>
+
+
+
+<body id="cambiafondo">
     <div class="container">
        <!-- Seccion para cambiar el color del texto -->
         <div class="row">
@@ -24,8 +27,9 @@
             <input type="text" id="colorInput" placeholder="Ingrese el color">
             <button onclick="cambiaColor()">Cambiar Estilo</button>
           </div>
+          
           <div class="col">
-            <div id="cambiatext">Texto a cambiar de estilo</div>
+            <div><input id="cambiatext" type="text" placeholder="Ingrese un texto"></div>
           </div>
         </div>
         
@@ -44,7 +48,16 @@
             <button onclick="cambiaColorFondo()">Cambiar color fondo</button>
           </div>
         </div>
+
+
+    <div class="row">
+      <div class="col">
+        <input type="text" id="fondInput" placeholder="Ingrese el color para su fondo">
+        <button onclick="cambiafondo()">Cambiar color fondo del background</button>
+      </div>
     </div>
+  </div>
+
     
     <script>
         // Función para cambiar el color del texto
@@ -66,6 +79,11 @@
             elem.style.fontSize = tam + 'px'; // Añade 'px' al tamaño para asegurar la validez del CSS
         }
 
+        function cambiafondo() {
+            var eleme = document.getElementById("cambiafondo");
+            var fondo = document.getElementById("fondInput").value;
+            eleme.style.backgroundColor = fondo;
+        }
 
         
     </script>
