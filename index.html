@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" 
     crossorigin="anonymous">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" 
     integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" 
     crossorigin="anonymous"></script>
@@ -58,34 +59,82 @@
     </div>
   </div>
 
+
+
+<div class="container" id="sumativa">
+
+  <h1></h1>
+</div>
+
+
+<div class="container" id="cartas">
+
+  <h1></h1>
+</div>
     
+
+
+
+
+  <script src="js/sc.js"></script>
+
+
+
+
     <script>
-        // Función para cambiar el color del texto
-        function cambiaColor() {
-            var elem = document.getElementById("cambiatext");
-            var color = document.getElementById("colorInput").value;
-            elem.style.color = color; 
-        }
-        function cambiaColorFondo() {
-            var elem = document.getElementById("cambiatext");
-            var colorfondo = document.getElementById("colfondoInput").value;
-            elem.style.backgroundColor = colorfondo; 
-        }
 
-        // Función para cambiar el tamaño del texto
-        function cambiatamano() {
-            var elem = document.getElementById("cambiatext");
-            var tam = document.getElementById("tamInput").value;
-            elem.style.fontSize = tam + 'px'; // Añade 'px' al tamaño para asegurar la validez del CSS
-        }
+      function muestraTxt(){
+        var texto=" ";
 
-        function cambiafondo() {
-            var eleme = document.getElementById("cambiafondo");
-            var fondo = document.getElementById("fondInput").value;
-            eleme.style.backgroundColor = fondo;
-        }
+        texto+="<h1>"
 
+        for (let i = 1; i <=9; i++) {
+
+          texto+="<button> ";
+          texto+=i;
+          
+          texto+="</button>"
+
+        }
+        texto+="</h1>"
+        return texto;
+      }
+      document.getElementById("sumativa").innerHTML =muestraTxt();
+      console.log(muestraTxt());
+
+
+      function muestracard(){
+        var texto1=' ';
+
+        texto1+='<div class="container">'
+        texto1+='<div class="row">'
+        for (let i = 1; i <=6; i++) {
         
+        texto1+='<div class="card col-md-4" style="width: 18rem;">';
+        texto1+= '<img class="card-img-top" src="img/ta'+i+'.jpg" alt="Card image cap">';
+        texto1+='     <div class="card-body">';
+        texto1+='        <h5 class="card-title">Card title</h5>';
+        texto1+='        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>';
+        texto1+='        <a href="#" class="btn btn-primary">Go somewhere</a>';
+        texto1+='      </div>';
+        texto1+='  </div>';
+      }
+      texto1+=' </div>';
+      texto1+=' </div>';
+      return texto1;
+    }
+
+      document.getElementById("cartas").innerHTML = muestracard();
+      console.log(muestracard());
+
+
+
+
+
+
     </script>
+
+
+
 </body>
 </html>
