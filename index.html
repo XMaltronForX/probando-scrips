@@ -16,6 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
     crossorigin="anonymous"></script>
+
+
+
 </head>
 
 
@@ -68,73 +71,128 @@
 
 
 <div class="container" id="cartas">
-
+  
   <h1></h1>
+
 </div>
+
+
     
+<div class="container">
+  <button id="dom">esconder texto</button>
+							<h1 id="dom2">texto</h1>
 
 
+              <h2>Formulario de Registro</h2>
+
+              <form onsubmit="return validarFormulario()">
+                <label for="email">Correo Electrónico:</label><br>
+                <input type="email" id="email" name="email"><br>
+              
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre"><br>
+              
+                <label for="apellido">Apellido:</label><br>
+                <input type="text" id="apellido" name="apellido"><br>
+              
+                <label for="telefono">Teléfono:</label><br>
+                <input type="tel" id="telefono" name="telefono"><br>
+              
+                <label for="contrasena">Contraseña:</label><br>
+                <input type="password" id="contrasena" name="contrasena"><br><br>
+              
+                <input type="submit" value="Registrarse">
+              </form>
+              
+      
+
+
+            
+
+</div>
 
 
   <script src="js/sc.js"></script>
 
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+ $(document).ready(function(){
+  $("form1").click(function(){
+    var email= $("#email").val();
+    console.log(email)
+  })
+ })
 
 
-    <script>
+$("#dom").click(function() {
+      $("#dom2").toggle();
 
-      function muestraTxt(){
-        var texto=" ";
+      document.getElementById("dom").innerHTML=("muestra texto")
+    })
+  </script>
 
-        texto+="<h1>"
+<script>
+  const emails = ["el.ra@gmail.com", "el.re@gmail.com", "el.ri@gmail.com", "el.ro@gmail.com" , "el.ru@gmail.com"];
+  emails.forEach((element) => console.log(element));
+  function validaremail() {
+    for (let i = 0; i < emails; i++) {
+    }
+  }
 
-        for (let i = 1; i <=9; i++) {
-
-          texto+="<button> ";
-          texto+=i;
-          
-          texto+="</button>"
-
-        }
-        texto+="</h1>"
-        return texto;
-      }
-      document.getElementById("sumativa").innerHTML =muestraTxt();
-      console.log(muestraTxt());
+  </script>
 
 
-      function muestracard(){
-        var texto1=' ';
 
-        texto1+='<div class="container">'
-        texto1+='<div class="row">'
-        for (let i = 1; i <=6; i++) {
-        
-        texto1+='<div class="card col-md-4" style="width: 18rem;">';
-        texto1+= '<img class="card-img-top" src="img/ta'+i+'.jpg" alt="Card image cap">';
-        texto1+='     <div class="card-body">';
-        texto1+='        <h5 class="card-title">Card title</h5>';
-        texto1+='        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>';
-        texto1+='        <a href="#" class="btn btn-primary">Go somewhere</a>';
-        texto1+='      </div>';
-        texto1+='  </div>';
-      }
-      texto1+=' </div>';
-      texto1+=' </div>';
-      return texto1;
+
+
+
+<script>
+  function validarFormulario() {
+    var email = document.getElementById('email').value;
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var telefono = document.getElementById('telefono').value;
+    var contrasena = document.getElementById('contrasena').value;
+
+    
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      alert('Por favor, introduce un correo electrónico válido.');
+      return false;
     }
 
-      document.getElementById("cartas").innerHTML = muestracard();
-      console.log(muestracard());
+    if (nombre.trim() === '') {
+      alert('Por favor, introduce tu nombre.');
+      return false;
+    }
 
+    if (apellido.trim() === '') {
+      alert('Por favor, introduce tu apellido.');
+      return false;
+    }
 
+    // Expresión regular para validar número de teléfono (solo dígitos)
+    var telefonoRegex = /^\d+$/;
+    if (!telefonoRegex.test(telefono)) {
+      alert('Por favor, introduce un número de teléfono válido.');
+      return false;
+    }
 
+    if (telefono.length < 9) {
+      alert('el telefono debe tener al menos 9 numeros.');
+      return false;
+    }
 
+    if (contrasena.length < 6) {
+      alert('La contraseña debe tener al menos 6 caracteres.');
+      return false;
+    }
 
-
-    </script>
-
-
+    return true;
+  }
+</script>
 
 </body>
 </html>
